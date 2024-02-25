@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Pages</title>
+  </head>
+  <body>
+    <h1>Create new Data Automotive</h1>
+    <form action="/autos/<%= auto._id %>?_method=PUT" method="post">
+      <div>
+        <label for="name"
+          >Name:
+          <input type="text" name="name" id="name" value="<%= auto.name %>" />
+        </label>
+      </div>
+      <div>
+        <label for="type"
+          >Type:
+          <select name="type" id="type">
+            <option value="Car" <%= auto.type === 'Car'? 'selected' : '' %>>Car</option>
+            <option value="Truck" <%= auto.type === 'Truck'? 'selected' : '' %>>Truck</option>
+            <option value="Pick Up" <%= auto.type === 'Pick Up'? 'selected' : '' %>>Pick Up</option>
+            <option value="Motorcycle" <%= auto.type === 'Motorcycle'? 'selected' : '' %>>Motorcycle</option>
+            <option value="Bike" <%= auto.type === 'Bike'? 'selected' : '' %>>Bike</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label for="years"
+          >Years:
+          <input type="number" name="years" id="years" value="<%= auto.years %>"  />
+        </label>
+      </div>
+      <div>
+        Status:
+        <label for="pre_order"
+          ><input
+            type="radio"
+            name="status"
+            id="pre_order"
+            value="pre_order"
+             <%= auto.status === 'pre_order'? 'checked' : '' %>
+          />Pre Order</label
+        >
+        <label for="ready"
+          ><input
+            type="radio"
+            name="status"
+            id="ready"
+            value="ready"
+            <%= auto.status === 'ready'? 'checked' : '' %>
+          />Ready</label
+        >
+        <label for="sold_out"
+          ><input
+            type="radio"
+            name="status"
+            id="sold_out"
+            value="sold_out"
+            <%= auto.status === 'sold_out'? 'checked' : '' %>
+          />Sold Out</label
+        >
+      </div>
+      <div>
+        <label for="price"
+          >Price:
+          <input type="number" name="price" id="price" value="<%= auto.price %>"  />
+        </label>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+    <div style="display: flex; flex-direction: row; align-items: flex-start">
+      <button type="button">
+        <a href="/autos" style="text-decoration: none; color: black">Back</a>
+      </button>
+    </div>
+  </body>
+</html>

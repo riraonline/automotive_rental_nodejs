@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Pages</title>
+  </head>
+  <body>
+    <h1>Create new Data Automotive</h1>
+    <form action="/autos" method="post">
+      <div>
+        <label for="name"
+          >Name:
+          <input type="text" name="name" id="name" value="<%= auto.name %>" disabled/>
+        </label>
+      </div><br />
+      <div>
+        <label for="type"
+          >Type:
+          <select name="type" id="type">
+            <option value="Car" <%= auto.type === 'Car'? 'selected' : 'disabled' %>>Car</option>
+            <option value="Truck" <%= auto.type === 'Truck'? 'selected' : 'disabled' %>>Truck</option>
+            <option value="Pick Up" <%= auto.type === 'Pick Up'? 'selected' : 'disabled' %>>Pick Up</option>
+            <option value="Motorcycle" <%= auto.type === 'Motorcycle'? 'selected' : 'disabled' %>>Motorcycle</option>
+            <option value="Bike" <%= auto.type === 'Bike'? 'selected' : 'disabled' %>>Bike</option>
+          </select>
+        </label>
+      </div><br />
+      <div>
+        <label for="years"
+          >Years:
+          <input type="number" name="years" id="years" value="<%= auto.years %>" disabled />
+        </label>
+      </div><br />
+      <div>
+        Status:
+        <label for="pre_order"
+          ><input
+            type="radio"
+            name="status"
+            id="pre_order"
+            value="pre_order"
+             <%= auto.status === 'pre_order'? 'checked' : 'disabled' %>
+          />Pre Order</label
+        >
+        <label for="ready"
+          ><input
+            type="radio"
+            name="status"
+            id="ready"
+            value="ready"
+            <%= auto.status === 'ready'? 'checked' : 'disabled' %>
+          />Ready</label
+        >
+        <label for="sold_out"
+          ><input
+            type="radio"
+            name="status"
+            id="sold_out"
+            value="sold_out"
+            <%= auto.status === 'sold_out'? 'checked' : 'disabled' %>
+          />Sold Out</label
+        >
+      </div><br />
+      <div>
+        <label for="price"
+          >Price:
+          <input type="number" name="price" id="price" value="<%= auto.price %>" disabled />
+        </label>
+      </div><br />
+    </form>
+    <div style="display: flex; flex-direction: row; align-items: flex-start">
+      <button type="button">
+        <a href="/autos" style="text-decoration: none; color: black">Back</a>
+      </button>
+      <button type="button" style="margin: 0px 20px">
+        <a
+          href="/autos/<%= auto._id %>/edit"
+          style="text-decoration: none; color: black"
+          >Edit</a
+        >
+      </button>
+      <form action="/autos/<%= auto._id %>?_method=DELETE" method="post">
+        <button type="submit">Delete</button>
+      </form>
+    </div><br />
+    <div>
+      <h1>User: <% auto.user.forEach(user => { %>
+       <a href="/users/<%= user._id %>" style="text-decoration: none;"><%= user.name %> - <%= user.address %></a>
+      <% }) %></h1>
+    </div>
+    <button type="button">
+      <a href="/" style="text-decoration: none; color: black;">Home</a>
+    </button>
+  </body>
+</html>

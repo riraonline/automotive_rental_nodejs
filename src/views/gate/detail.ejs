@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details Data</title>
+  </head>
+  <body>
+    <h1>Details of Data User</h1>
+    <p><%= messages %></p>
+    <form action="/users" method="post">
+      <div>
+        Name:
+        <input type="text" name="name" value="<%= user.name %>" disabled />
+      </div>
+      <br />
+      <div>
+        Gender:
+        <label for="male"
+          ><input type="radio" name="gender" id="male" value="male" <%=
+          user.gender === 'male' ? 'checked': 'disabled' %>/>Male</label
+        >
+        <label for="female"
+          ><input type="radio" name="gender" id="female" value="female" <%=
+          user.gender === 'female' ? 'checked' : 'disabled' %>/>Female</label
+        >
+      </div>
+      <br />
+      <div>
+        Address: <br /><textarea
+          name="address"
+          style="height: 50px; width: 250px"
+          disabled
+        >
+<%= user.address %></textarea
+        >
+      </div>
+      <br />
+      <div>
+        Phone's Number:
+        <input type="number" name="phone" value="<%= user.phone %>" disabled />
+      </div>
+      <br />
+      <div>
+        Email:
+        <input type="email" name="email" value="<%= user.email %>" disabled />
+      </div>
+      <br />
+    </form>
+    <div style="display: flex; flex-direction: row; align-items: flex-start">
+      <button type="button">
+        <a href="/users" style="text-decoration: none; color: black">Back</a>
+      </button>
+      <button type="button" style="margin: 0px 20px">
+        <a
+          href="/users/<%= user._id %>/edit"
+          style="text-decoration: none; color: black"
+          >Edit</a
+        >
+      </button>
+      <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+    <h1>The Auto's</h1>
+    <button type="button">
+      <a
+        href="/users/<%= user._id %>/autos/create"
+        style="text-decoration: none; color: black"
+        >Add New Data</a
+      >
+    </button>
+    <ul>
+      <% user.autos.forEach(auto => { %>
+      <li>
+        <a href="/autos/<%= auto._id %>" style="text-decoration: none"
+          ><%= auto.name %> - <%= auto.type %> - <%= auto.status %></a
+        >
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

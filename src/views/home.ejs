@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automotive Rental</title>
+  </head>
+  <body>
+    <h1>Automotive Rental Website</h1>
+    <div>
+      <% if (!user) { %>
+      <button type="button">
+        <a href="/login" style="text-decoration: none; color: black">Login</a>
+      </button>
+      <button type="button">
+        <a href="/register" style="text-decoration: none; color: black"
+          >Register</a
+        >
+      </button>
+      <% } else { %>
+      <form action="/logout" method="post">
+        <button type="submit">Logout</button>
+      </form>
+      <% } %>
+      <button type="button">
+        <a href="/users" style="text-decoration: none; color: black"
+          >All Users</a
+        >
+      </button>
+    </div>
+    <ul>
+      <% for( let auto of autos ) { %>
+      <li>
+        <a href="/autos/<%= auto._id %>"
+          ><%= auto.name %> - <%= auto.type %> - <%= auto.price %></a
+        >
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

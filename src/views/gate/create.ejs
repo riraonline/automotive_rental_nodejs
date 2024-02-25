@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Data</title>
+  </head>
+  <body>
+    <h1>Create new Data User</h1>
+    <form action="/users" method="post">
+      <div>Name: <input type="text" name="name" /></div>
+      <br />
+      <div>
+        Gender:
+        <label for="male"
+          ><input
+            type="radio"
+            name="gender"
+            id="male"
+            value="male"
+          />Male</label
+        >
+        <label for="female"
+          ><input
+            type="radio"
+            name="gender"
+            id="female"
+            value="female"
+          />Female</label
+        >
+      </div>
+      <br />
+      <div>
+        Address: <br /><textarea
+          name="address"
+          style="height: 50px; width: 250px"
+        ></textarea>
+      </div>
+      <br />
+      <div>Phone's Number: <input type="number" name="phone" /></div>
+      <br />
+      <div>Email: <input type="email" name="email" /></div>
+      <br />
+      <div>Password: <input type="password" name="password" /></div>
+      <br />
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>

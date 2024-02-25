@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Page</title>
+  </head>
+  <body>
+    <h1>User List Pages</h1>
+    <p><%= message %></p>
+    <button type="button">
+      <a href="/" style="text-decoration: none; color: black">Home</a>
+    </button>
+    <button type="button">
+      <a href="/users/create" style="text-decoration: none; color: black"
+        >Add New Data</a
+      >
+    </button>
+    <ul>
+      <% for( let user of users ) { %>
+      <li>
+        <a href="/users/<%= user._id %>" style="text-decoration: none"
+          ><%= user.name %> - <%= user.address %></a
+        >
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

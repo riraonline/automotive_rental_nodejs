@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Pages</title>
+  </head>
+  <body>
+    <h1>Create new Data Automotive</h1>
+    <form action="/users/<%= user_id %>/autos" method="post">
+      <div>
+        <label for="name"
+          >Name:
+          <input type="text" name="name" id="name" />
+        </label>
+      </div>
+      <div>
+        <label for="type"
+          >Type:
+          <select name="type" id="type">
+            <option value="Car">Car</option>
+            <option value="Truck">Truck</option>
+            <option value="Pick Up">Pick Up</option>
+            <option value="Motorcycle">Motorcycle</option>
+            <option value="Bike">Bike</option>
+          </select>
+        </label>
+      </div>
+      <div>
+        <label for="years"
+          >Years:
+          <input type="number" name="years" id="years" />
+        </label>
+      </div>
+      <div>
+        Status:
+        <label for="pre_order"
+          ><input
+            type="radio"
+            name="status"
+            id="pre_order"
+            value="pre_order"
+          />Pre Order</label
+        >
+        <label for="ready"
+          ><input
+            type="radio"
+            name="status"
+            id="ready"
+            value="ready"
+          />Ready</label
+        >
+        <label for="sold_out"
+          ><input
+            type="radio"
+            name="status"
+            id="sold_out"
+            value="sold_out"
+          />Sold Out</label
+        >
+      </div>
+      <div>
+        <label for="price"
+          >Price:
+          <input type="number" name="price" id="price" />
+        </label>
+      </div>
+      <button type="submit">Save</button>
+    </form>
+  </body>
+</html>

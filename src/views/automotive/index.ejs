@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autos Page</title>
+  </head>
+  <body>
+    <h1>Auto Home Pages</h1>
+    <button type="button">
+      <a href="/" style="text-decoration: none; color: black">Home</a>
+    </button>
+    <button type="button">
+      <a href="/autos/create" style="text-decoration: none; color: black"
+        >Add New Data</a
+      >
+    </button>
+    <ul>
+      <% for( let auto of autos ) { %>
+      <li>
+        <a href="/autos/<%= auto._id %>"
+          ><%= auto.name %> - <%= auto.type %> - <%= auto.price %></a
+        >
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
